@@ -3,6 +3,7 @@ package com.languagetutors.api.controller;
 import com.languagetutors.api.professor.DadosCadastroProfessor;
 import com.languagetutors.api.professor.Professor;
 import com.languagetutors.api.professor.ProfessorRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +18,7 @@ public class ProfessorController {
     private ProfessorRepository professorRepository;
 
     @PostMapping
-    public void cadastrar(@RequestBody DadosCadastroProfessor dados) {
+    public void cadastrar(@RequestBody @Valid DadosCadastroProfessor dados) {
         professorRepository.save(new Professor(dados));
     }
 
