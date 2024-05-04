@@ -1,6 +1,9 @@
 package com.languagetutors.api.controller;
 
 import com.languagetutors.api.professor.DadosCadastroProfessor;
+import com.languagetutors.api.professor.Professor;
+import com.languagetutors.api.professor.ProfessorRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,9 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/professores")
 public class ProfessorController {
 
+    @Autowired
+    private ProfessorRepository professorRepository;
+
     @PostMapping
     public void cadastrar(@RequestBody DadosCadastroProfessor dados) {
-        System.out.println(dados);
+        professorRepository.save(new Professor(dados));
     }
 
 }

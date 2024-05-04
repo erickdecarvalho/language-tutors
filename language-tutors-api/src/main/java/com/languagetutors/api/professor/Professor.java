@@ -28,4 +28,11 @@ public class Professor {
     @Embedded
     private Endereco endereco;
 
+    public Professor(DadosCadastroProfessor dados) {
+        this.nome = dados.nome();
+        this.email = dados.email();
+        this.crm = dados.crm();
+        this.idioma = dados.idioma();
+        this.endereco = new Endereco(dados.endereco());
+    }
 }
