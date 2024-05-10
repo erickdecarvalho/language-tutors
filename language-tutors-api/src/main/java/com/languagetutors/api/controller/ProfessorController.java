@@ -1,10 +1,13 @@
 package com.languagetutors.api.controller;
 
+import com.languagetutors.api.aluno.DadosDetalhamentoAluno;
 import com.languagetutors.api.professor.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
@@ -16,24 +19,33 @@ public class ProfessorController {
     private ProfessorRepository professorRepository;
 
     @PostMapping
-    public void cadastrar(@RequestBody @Valid DadosCadastroProfessor dados) {
-        professorRepository.save(new Professor(dados));
+    public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroProfessor dados, UriComponentsBuilder uriBuilder) {
+        var professor = new Professor(dados);
+        var uri = uriBuilder.path("/professores/{id}").buildAndExpand(professor.getId()).toUri();
+
+        return ResponseEntity.created(uri).body(new DadosDetalhamentoProfessor(professor));
     }
 
     @GetMapping
-    public List<DadosListagemProfessores> listar() {
-        return professorRepository.findAll().stream().map(DadosListagemProfessores::new).toList();
+    public ResponseEntity<List<DadosListagemProfessores>> listar() {
+        var professores = professorRepository.findAll().stream().map(DadosListagemProfessores::new).toList();
+
+        return ResponseEntity.ok(professores);
     }
 
     @PutMapping
     @Transactional
-    public void atualizar(@RequestBody @Valid DadosAtualizacaoProfessor dados) {
+    public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoProfessor dados) {
         var professor = professorRepository.getReferenceById(dados.id());
         professor.atualizarInformacoes(dados);
+
+        return ResponseEntity.ok(new DadosDetalhamentoProfessor(professor));
+
     }
 
     @DeleteMapping("/{id}")
-    public void excluir(@PathVariable Long id) {
+    public ResponseEntity excluir(@PathVariable Long id) {
         professorRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 }
