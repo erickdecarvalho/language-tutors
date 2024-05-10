@@ -20,6 +20,7 @@ public class Professor {
     private Long id;
     private String nome;
     private String email;
+    private String telefone;
     private String cpf;
 
     @Enumerated(EnumType.STRING)
@@ -31,6 +32,7 @@ public class Professor {
     public Professor(DadosCadastroProfessor dados) {
         this.nome = dados.nome();
         this.email = dados.email();
+        this.telefone = dados.telefone();
         this.cpf = dados.cpf();
         this.idioma = dados.idioma();
         this.endereco = new Endereco(dados.endereco());
