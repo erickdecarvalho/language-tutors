@@ -1,9 +1,7 @@
 package com.languagetutors.api.controller;
 
-import com.languagetutors.api.professor.DadosCadastroProfessor;
-import com.languagetutors.api.professor.DadosListagemProfessores;
-import com.languagetutors.api.professor.Professor;
-import com.languagetutors.api.professor.ProfessorRepository;
+import com.languagetutors.api.professor.*;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,5 +25,15 @@ public class ProfessorController {
         return professorRepository.findAll().stream().map(DadosListagemProfessores::new).toList();
     }
 
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosAtualizacaoProfessor dados) {
+        var professor = professorRepository.getReferenceById(dados.id());
+        professor.atualizarInformacoes(dados);
+    }
 
+    @DeleteMapping("/{id}")
+    public void excluir(@PathVariable Long id) {
+        professorRepository.deleteById(id);
+    }
 }
