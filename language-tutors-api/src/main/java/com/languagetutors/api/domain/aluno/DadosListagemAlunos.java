@@ -1,6 +1,4 @@
-package com.languagetutors.api.aluno;
-
-import com.languagetutors.api.professor.Professor;
+package com.languagetutors.api.domain.aluno;
 
 public record DadosListagemAlunos(Long id, String nome, String email, String cpf) {
 

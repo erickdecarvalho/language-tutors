@@ -1,6 +1,6 @@
-package com.languagetutors.api.aluno;
+package com.languagetutors.api.domain.aluno;
 
-import com.languagetutors.api.endereco.DadosEndereco;
+import com.languagetutors.api.domain.endereco.DadosEndereco;
 import jakarta.validation.constraints.NotNull;
 
 public record DadosAtualizacaoAluno(

@@ -1,8 +1,6 @@
-package com.languagetutors.api.aluno;
+package com.languagetutors.api.domain.aluno;
 
-import com.languagetutors.api.endereco.DadosEndereco;
-import com.languagetutors.api.endereco.Endereco;
-import com.languagetutors.api.professor.Idioma;
+import com.languagetutors.api.domain.endereco.DadosEndereco;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

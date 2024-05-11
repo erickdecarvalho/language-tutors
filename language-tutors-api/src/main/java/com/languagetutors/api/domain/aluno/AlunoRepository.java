@@ -1,4 +1,4 @@
-package com.languagetutors.api.aluno;
+package com.languagetutors.api.domain.aluno;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,4 +1,4 @@
-package com.languagetutors.api.endereco;
+package com.languagetutors.api.domain.endereco;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;

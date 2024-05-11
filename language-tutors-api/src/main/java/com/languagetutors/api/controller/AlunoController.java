@@ -1,6 +1,6 @@
 package com.languagetutors.api.controller;
 
-import com.languagetutors.api.aluno.*;
+import com.languagetutors.api.domain.aluno.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

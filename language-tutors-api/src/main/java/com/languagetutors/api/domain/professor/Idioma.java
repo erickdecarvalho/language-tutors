@@ -1,4 +1,4 @@
-package com.languagetutors.api.professor;
+package com.languagetutors.api.domain.professor;
 
 public enum Idioma {
 

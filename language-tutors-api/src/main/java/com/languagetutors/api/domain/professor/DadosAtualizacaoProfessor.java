@@ -1,6 +1,6 @@
-package com.languagetutors.api.professor;
+package com.languagetutors.api.domain.professor;
 
-import com.languagetutors.api.endereco.DadosEndereco;
+import com.languagetutors.api.domain.endereco.DadosEndereco;
 import jakarta.validation.constraints.NotNull;
 
 public record DadosAtualizacaoProfessor(

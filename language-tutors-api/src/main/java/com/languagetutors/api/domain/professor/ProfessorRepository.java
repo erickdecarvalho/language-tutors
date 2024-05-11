@@ -1,4 +1,4 @@
-package com.languagetutors.api.professor;
+package com.languagetutors.api.domain.professor;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

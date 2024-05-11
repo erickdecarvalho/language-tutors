@@ -1,7 +1,6 @@
-package com.languagetutors.api.professor;
+package com.languagetutors.api.domain.professor;
 
-import com.languagetutors.api.aluno.Aluno;
-import com.languagetutors.api.endereco.Endereco;
+import com.languagetutors.api.domain.endereco.Endereco;
 
 public record DadosDetalhamentoProfessor(Long id, String nome, String email, String cpf, String telefone, Endereco endereco) {
     public DadosDetalhamentoProfessor(Professor professor) {

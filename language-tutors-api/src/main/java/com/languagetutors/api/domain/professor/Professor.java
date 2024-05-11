@@ -1,6 +1,6 @@
-package com.languagetutors.api.professor;
+package com.languagetutors.api.domain.professor;
 
-import com.languagetutors.api.endereco.Endereco;
+import com.languagetutors.api.domain.endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
