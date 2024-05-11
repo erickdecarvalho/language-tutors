@@ -2,6 +2,7 @@ package com.languagetutors.api.controller;
 
 import com.languagetutors.api.domain.usuario.DadosAutenticacao;
 import com.languagetutors.api.domain.usuario.Usuario;
+import com.languagetutors.api.infra.security.DadosTokenJWT;
 import com.languagetutors.api.infra.security.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,8 @@ public class AutenticacaoController {
         var authentication = manager.authenticate(token);
 
         // retorna o token do usuário após a verificação se ele existe no banco
-        return ResponseEntity.ok(tokenService.gerarToken((Usuario) authentication.getPrincipal()));
+        var tokenJWT = tokenService.gerarToken((Usuario) authentication.getPrincipal());
+        return ResponseEntity.ok(new DadosTokenJWT(tokenJWT));
 
     }
 }
