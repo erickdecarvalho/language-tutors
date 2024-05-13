@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Table(name = "aulas")
-@Entity(name = "Aulas")
+@Entity(name = "Aula")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
