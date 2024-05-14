@@ -4,8 +4,10 @@ import com.languagetutors.api.domain.aula.AulaRepository;
 import com.languagetutors.api.domain.aula.DadosAgendamentoAula;
 import com.languagetutors.api.infra.exception.ValidacaoException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class ValidadorProfessorComOutraAulaNoMesmoHorario {
+@Component
+public class ValidadorProfessorComOutraAulaNoMesmoHorario implements ValidadorAgendamentoDeAula{
 
     @Autowired
     private AulaRepository aulaRepository;
