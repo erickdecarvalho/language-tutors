@@ -3,6 +3,7 @@ package com.languagetutors.api.controller;
 import com.languagetutors.api.domain.aula.AgendaDeAulas;
 import com.languagetutors.api.domain.aula.DadosAgendamentoAula;
 import com.languagetutors.api.domain.aula.DadosDetalhamentoAula;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/aulas")
+@SecurityRequirement(name = "bearer-key")
 public class AulaController {
 
     @Autowired

@@ -4,6 +4,7 @@ import com.languagetutors.api.domain.usuario.DadosAutenticacao;
 import com.languagetutors.api.domain.usuario.Usuario;
 import com.languagetutors.api.infra.security.DadosTokenJWT;
 import com.languagetutors.api.infra.security.TokenService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/login")
+@SecurityRequirement(name = "bearer-key")
 public class AutenticacaoController {
 
     @Autowired
